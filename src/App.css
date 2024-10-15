@@ -50,3 +50,23 @@
   color: var(--slate-700);
   font-size: 1.5rem;
 }
+
+.btn{
+  border: 2px solid #022994;
+  background-color: #022994;
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 4px;
+  
+  
+}
+
+
+.close{
+  font-weight: bold;
+  color: black;
+}
+
+
+

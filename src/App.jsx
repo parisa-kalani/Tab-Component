@@ -1,5 +1,8 @@
+
 import { useState } from "react";
 import "./App.css";
+
+
 const tabData = [
   {
     id: 1,
@@ -18,8 +21,52 @@ const tabData = [
   },
 ];
 
-function App() {
-return <h1>Tab Component : starter file</h1>
+function App(){
+
+ 
+  const [activeTab,setActiveTab] = useState(1);
+  const [isShow,setIsShow] = useState(false);
+ console.log(isShow)
+  const handleActiveTab =(id)=>{
+   setActiveTab(id)
+  }
+
+  return (
+   
+  <div>
+    <button className="btn" 
+       onClick={()=>setIsShow(!isShow)}>SHOW ITEMS</button>
+      {
+        isShow ? (<div className="tab">
+          <div className="tab__header">
+         {
+          tabData.map((tab) =>(
+            <button 
+            onClick={()=>handleActiveTab(tab.id)}
+            key={tab.id} 
+            className={activeTab===tab.id ? "active" : ""}>
+            <span>{tab.title}</span>
+            <span className="tab-indicator"></span>
+          </button>
+          ) )
+         }
+          </div>
+          <div className="tab__content">{tabData[activeTab-1].content}</div>
+        </div>) : (<p className="close">Nothing To Show..</p>)   
+      }
+  </div>)
+  
+  
 }
 
+
+
 export default App;
+
+
+
+
+
+
+ 
+
